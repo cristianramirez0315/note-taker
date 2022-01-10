@@ -41,4 +41,4 @@ app.post('/notes', (req, res) => {
     }
 });
 
-module.exports = router;
+module.exports = app;

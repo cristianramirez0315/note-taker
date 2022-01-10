@@ -1,12 +1,12 @@
-const app = require('express').Router();
+const router = require('express').Router();
 const fs = require('fs');
 const path = require('path');
 const db = require('../../db/db.json');
 const noteIds = require('../../db/noteIds.json');
-const { filterByQuery, findById, createNewNote, validateNote } = require('../../lib/notes.js');
+const { filterByQuery, findById, createNewNote, validateNote, deleteById } = require('../../lib/notes');
 
 // GET all notes
-app.get('/notes', (req, res) => {
+router.get('/notes', (req, res) => {
     let results = db;
     if (req.query) {
         results = filterByQuery(req.query, results);
@@ -16,7 +16,7 @@ app.get('/notes', (req, res) => {
 });
 
 // GET note by id
-app.get('/note/:id', (req, res) => {
+router.get('/note/:id', (req, res) => {
     const result = findById(req.params.id, db);
     if (result) {
         res.json(result);
@@ -26,7 +26,7 @@ app.get('/note/:id', (req, res) => {
 })
 
 // POST/create new note
-app.post('/notes', (req, res) => {
+router.post('/notes', (req, res) => {
     noteIds.id += 1;
     fs.writeFileSync(
         path.join(__dirname, '../../db/noteIds.json'),
@@ -41,4 +41,4 @@ app.post('/notes', (req, res) => {
     }
 });
 
-module.exports = app;
+module.exports = router;

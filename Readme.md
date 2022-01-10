@@ -8,4 +8,4 @@ Very simple, just write your notes, save them, and have a record of all your not
 * Express.js
 
 # **Deployed using**
-* Heroku
+* Heroku - https://lit-coast-35206.herokuapp.com/

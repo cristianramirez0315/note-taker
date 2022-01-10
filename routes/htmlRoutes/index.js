@@ -7,7 +7,7 @@ app.get('*', (req, res) => {
 })
 
 app.get('/notesPage', (req, res) => {
-    res.sendFile(path.join(__dirname, '../../public/notes.html'));
+    res.sendFile(path.join(__dirname, '../public/notes.html'));
 });
 
 module.exports = app;

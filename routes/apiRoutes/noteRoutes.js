@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const db = require('../../db/db.json');
 const noteIds = require('../../db/noteIds.json');
-const { filterByQuery, findById, createNewNote, validateNote, deleteById } = require('../../lib/notes');
+const { filterByQuery, findById, createNewNote, validateNote } = require('../../lib/notes');
 
 // GET all notes
 app.get('/notes', (req, res) => {
